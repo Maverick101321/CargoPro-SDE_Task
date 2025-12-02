@@ -4,14 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * Exception thrown when a requested resource is not found.
- * Returns a 404 Not Found status code.
+ * Exception thrown when a requested resource (Load, Bid, Transporter) is not found.
  */
-@ResponseStatus(value = HttpStatus.NOT_FOUND)
+@ResponseStatus(HttpStatus.NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
-
-    private static final long serialVersionUID = 1L;
-
     public ResourceNotFoundException(String message) {
         super(message);
     }
