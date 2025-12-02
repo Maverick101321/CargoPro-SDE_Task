@@ -31,4 +31,12 @@ public interface BidRepository extends JpaRepository<Bid, UUID> {
                        @Param("transporterId") UUID transporterId, 
                        @Param("status") BidStatus status, 
                        Pageable pageable);
+
+    /**
+     * Finds all bids for a specific load.
+     *
+     * @param loadId The ID of the load.
+     * @return A list of bids for the load.
+     */
+    java.util.List<Bid> findByLoadId(UUID loadId);
 }
