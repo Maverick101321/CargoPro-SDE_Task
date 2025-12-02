@@ -1,11 +1,5 @@
 # 🚚 Transport Management System (TMS) Backend Assignment
 
-**Candidate:** [YOUR NAME]
-**Contact:** [YOUR EMAIL]
-**GitHub Repository:** [Your GitHub Link]
-
----
-
 ## 🎯 Objective
 
 [cite_start]This project implements the backend system for a Transport Management System using **Spring Boot 3.2+** and **PostgreSQL** [cite: 4, 113-115]. [cite_start]The focus is on handling real-world logistics challenges, including complex state transitions, capacity management, and concurrency control[cite: 5, 53].
