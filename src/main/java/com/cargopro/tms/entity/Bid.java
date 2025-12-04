@@ -1,14 +1,13 @@
 package com.cargopro.tms.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+
 import java.sql.Timestamp;
 import java.util.UUID;
 
 /**
  * Entity class representing a Bid placed by a Transporter for a specific Load.
  */
-@Data // Lombok annotation to automatically generate getters, setters, toString, equals, and hashCode methods.
 @Entity // Specifies that this class is a JPA entity.
 @Table(name = "bids") // Optional: Specifies the name of the database table.
 public class Bid {
@@ -57,4 +56,62 @@ public class Bid {
      * The date and time when the bid was submitted.
      */
     private Timestamp submittedAt;
+
+    // Getters and Setters
+
+    public UUID getBidId() {
+        return bidId;
+    }
+
+    public void setBidId(UUID bidId) {
+        this.bidId = bidId;
+    }
+
+    public UUID getLoadId() {
+        return loadId;
+    }
+
+    public void setLoadId(UUID loadId) {
+        this.loadId = loadId;
+    }
+
+    public UUID getTransporterId() {
+        return transporterId;
+    }
+
+    public void setTransporterId(UUID transporterId) {
+        this.transporterId = transporterId;
+    }
+
+    public double getProposedRate() {
+        return proposedRate;
+    }
+
+    public void setProposedRate(double proposedRate) {
+        this.proposedRate = proposedRate;
+    }
+
+    public int getTrucksOffered() {
+        return trucksOffered;
+    }
+
+    public void setTrucksOffered(int trucksOffered) {
+        this.trucksOffered = trucksOffered;
+    }
+
+    public BidStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BidStatus status) {
+        this.status = status;
+    }
+
+    public Timestamp getSubmittedAt() {
+        return submittedAt;
+    }
+
+    public void setSubmittedAt(Timestamp submittedAt) {
+        this.submittedAt = submittedAt;
+    }
 }

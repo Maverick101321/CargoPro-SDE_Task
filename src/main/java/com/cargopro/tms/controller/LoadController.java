@@ -7,7 +7,7 @@ import com.cargopro.tms.dto.LoadWithBidsResponse;
 import com.cargopro.tms.entity.LoadStatus;
 import com.cargopro.tms.service.LoadService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -23,10 +23,13 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("/load")
-@RequiredArgsConstructor
 public class LoadController {
 
     private final LoadService loadService;
+
+    public LoadController(LoadService loadService) {
+        this.loadService = loadService;
+    }
 
     /**
      * 1. POST /load

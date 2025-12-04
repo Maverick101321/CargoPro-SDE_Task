@@ -10,7 +10,7 @@ import com.cargopro.tms.repository.BidRepository;
 import com.cargopro.tms.repository.BookingRepository;
 import com.cargopro.tms.repository.LoadRepository;
 import com.cargopro.tms.repository.TransporterRepository;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,13 +25,19 @@ import java.util.UUID;
  * Handles the complex logic of accepting bids, managing capacity, and handling concurrency.
  */
 @Service
-@RequiredArgsConstructor
 public class BookingService {
 
     private final BookingRepository bookingRepository;
     private final BidRepository bidRepository;
     private final LoadRepository loadRepository;
     private final TransporterRepository transporterRepository;
+
+    public BookingService(BookingRepository bookingRepository, BidRepository bidRepository, LoadRepository loadRepository, TransporterRepository transporterRepository) {
+        this.bookingRepository = bookingRepository;
+        this.bidRepository = bidRepository;
+        this.loadRepository = loadRepository;
+        this.transporterRepository = transporterRepository;
+    }
 
     /**
      * Accepts a bid and creates a booking.

@@ -5,7 +5,7 @@ import com.cargopro.tms.entity.Transporter;
 import com.cargopro.tms.entity.TransporterTruckCapacity;
 import com.cargopro.tms.service.TransporterService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +19,13 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("/transporter")
-@RequiredArgsConstructor
 public class TransporterController {
 
     private final TransporterService transporterService;
+
+    public TransporterController(TransporterService transporterService) {
+        this.transporterService = transporterService;
+    }
 
     /**
      * 1. POST /transporter

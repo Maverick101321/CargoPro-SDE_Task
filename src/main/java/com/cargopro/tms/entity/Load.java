@@ -1,7 +1,7 @@
 package com.cargopro.tms.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -9,7 +9,6 @@ import java.util.UUID;
  * Entity class representing a Load in the Transport Management System.
  * This class maps to a database table and includes optimistic locking support.
  */
-@Data // Lombok annotation to automatically generate getters, setters, toString, equals, and hashCode methods.
 @Entity // Specifies that this class is a JPA entity and maps to a database table.
 @Table(name = "loads") // Optional: Specifies the name of the database table.
 public class Load {
@@ -84,17 +83,113 @@ public class Load {
 
     /**
      * Version field for Optimistic Locking.
-     * 
-     * Optimistic Locking Mechanism:
-     * When a transaction reads this entity, it also reads the version number.
-     * When the transaction attempts to update the entity, it checks if the version in the database
-     * matches the version it read.
-     * - If they match, the update proceeds and the version is incremented.
-     * - If they do not match, it means another transaction has updated the record in the meantime.
-     *   In this case, an OptimisticLockException is thrown, preventing lost updates.
-     * 
-     * This ensures data integrity without locking the database row for long periods.
      */
     @Version // Specifies the version field or property of an entity class that serves as its optimistic lock value.
     private Long version;
+
+    // Getters and Setters
+
+    public UUID getLoadId() {
+        return loadId;
+    }
+
+    public void setLoadId(UUID loadId) {
+        this.loadId = loadId;
+    }
+
+    public String getShipperId() {
+        return shipperId;
+    }
+
+    public void setShipperId(String shipperId) {
+        this.shipperId = shipperId;
+    }
+
+    public String getLoadingCity() {
+        return loadingCity;
+    }
+
+    public void setLoadingCity(String loadingCity) {
+        this.loadingCity = loadingCity;
+    }
+
+    public String getUnloadingCity() {
+        return unloadingCity;
+    }
+
+    public void setUnloadingCity(String unloadingCity) {
+        this.unloadingCity = unloadingCity;
+    }
+
+    public Timestamp getLoadingDate() {
+        return loadingDate;
+    }
+
+    public void setLoadingDate(Timestamp loadingDate) {
+        this.loadingDate = loadingDate;
+    }
+
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public WeightUnit getWeightUnit() {
+        return weightUnit;
+    }
+
+    public void setWeightUnit(WeightUnit weightUnit) {
+        this.weightUnit = weightUnit;
+    }
+
+    public String getTruckType() {
+        return truckType;
+    }
+
+    public void setTruckType(String truckType) {
+        this.truckType = truckType;
+    }
+
+    public int getNumOfTrucks() {
+        return numOfTrucks;
+    }
+
+    public void setNumOfTrucks(int numOfTrucks) {
+        this.numOfTrucks = numOfTrucks;
+    }
+
+    public LoadStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(LoadStatus status) {
+        this.status = status;
+    }
+
+    public Timestamp getDatePosted() {
+        return datePosted;
+    }
+
+    public void setDatePosted(Timestamp datePosted) {
+        this.datePosted = datePosted;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 }

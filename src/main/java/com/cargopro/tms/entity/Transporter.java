@@ -1,14 +1,13 @@
 package com.cargopro.tms.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+
 import java.util.List;
 import java.util.UUID;
 
 /**
  * Entity class representing a Transporter in the Transport Management System.
  */
-@Data // Lombok annotation to automatically generate getters, setters, toString, equals, and hashCode methods.
 @Entity // Specifies that this class is a JPA entity.
 @Table(name = "transporters") // Optional: Specifies the name of the database table.
 public class Transporter {
@@ -42,4 +41,38 @@ public class Transporter {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "transporter_id") 
     private List<TransporterTruckCapacity> availableTrucks;
+
+    // Getters and Setters
+
+    public UUID getTransporterId() {
+        return transporterId;
+    }
+
+    public void setTransporterId(UUID transporterId) {
+        this.transporterId = transporterId;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public List<TransporterTruckCapacity> getAvailableTrucks() {
+        return availableTrucks;
+    }
+
+    public void setAvailableTrucks(List<TransporterTruckCapacity> availableTrucks) {
+        this.availableTrucks = availableTrucks;
+    }
 }

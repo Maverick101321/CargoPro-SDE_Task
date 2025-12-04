@@ -5,7 +5,7 @@ import com.cargopro.tms.dto.BidResponse;
 import com.cargopro.tms.entity.BidStatus;
 import com.cargopro.tms.service.BidService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -20,10 +20,13 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("/bid")
-@RequiredArgsConstructor
 public class BidController {
 
     private final BidService bidService;
+
+    public BidController(BidService bidService) {
+        this.bidService = bidService;
+    }
 
     /**
      * 1. POST /bid

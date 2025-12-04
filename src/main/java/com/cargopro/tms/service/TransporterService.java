@@ -5,7 +5,7 @@ import com.cargopro.tms.entity.Transporter;
 import com.cargopro.tms.entity.TransporterTruckCapacity;
 import com.cargopro.tms.exception.ResourceNotFoundException;
 import com.cargopro.tms.repository.TransporterRepository;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,10 +17,13 @@ import java.util.UUID;
  * Annotated with @Service to indicate it's a Spring-managed bean holding business logic.
  */
 @Service
-@RequiredArgsConstructor // Generates a constructor for all final fields (dependency injection).
 public class TransporterService {
 
     private final TransporterRepository transporterRepository;
+
+    public TransporterService(TransporterRepository transporterRepository) {
+        this.transporterRepository = transporterRepository;
+    }
 
     /**
      * Registers a new transporter.

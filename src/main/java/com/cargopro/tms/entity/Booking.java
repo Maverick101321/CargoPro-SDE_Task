@@ -1,7 +1,7 @@
 package com.cargopro.tms.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -9,7 +9,6 @@ import java.util.UUID;
  * Entity class representing a confirmed Booking in the Transport Management System.
  * A booking is created when a bid is accepted for a load.
  */
-@Data // Lombok annotation to automatically generate getters, setters, toString, equals, and hashCode methods.
 @Entity // Specifies that this class is a JPA entity.
 @Table(name = "bookings") // Optional: Specifies the name of the database table.
 public class Booking {
@@ -65,4 +64,70 @@ public class Booking {
      * The date and time when the booking was confirmed.
      */
     private Timestamp bookedAt;
+
+    // Getters and Setters
+
+    public UUID getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(UUID bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public UUID getLoadId() {
+        return loadId;
+    }
+
+    public void setLoadId(UUID loadId) {
+        this.loadId = loadId;
+    }
+
+    public UUID getBidId() {
+        return bidId;
+    }
+
+    public void setBidId(UUID bidId) {
+        this.bidId = bidId;
+    }
+
+    public UUID getTransporterId() {
+        return transporterId;
+    }
+
+    public void setTransporterId(UUID transporterId) {
+        this.transporterId = transporterId;
+    }
+
+    public int getAllocatedTrucks() {
+        return allocatedTrucks;
+    }
+
+    public void setAllocatedTrucks(int allocatedTrucks) {
+        this.allocatedTrucks = allocatedTrucks;
+    }
+
+    public double getFinalRate() {
+        return finalRate;
+    }
+
+    public void setFinalRate(double finalRate) {
+        this.finalRate = finalRate;
+    }
+
+    public BookingStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookingStatus status) {
+        this.status = status;
+    }
+
+    public Timestamp getBookedAt() {
+        return bookedAt;
+    }
+
+    public void setBookedAt(Timestamp bookedAt) {
+        this.bookedAt = bookedAt;
+    }
 }

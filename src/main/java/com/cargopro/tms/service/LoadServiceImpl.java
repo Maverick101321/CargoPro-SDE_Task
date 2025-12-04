@@ -13,7 +13,7 @@ import com.cargopro.tms.exception.ResourceNotFoundException;
 import com.cargopro.tms.repository.BidRepository;
 import com.cargopro.tms.repository.LoadRepository;
 import com.cargopro.tms.repository.TransporterRepository;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -31,12 +31,17 @@ import java.util.stream.Collectors;
  * Handles business logic for Load management, including creation, cancellation, and bid analysis.
  */
 @Service
-@RequiredArgsConstructor
 public class LoadServiceImpl implements LoadService {
 
     private final LoadRepository loadRepository;
     private final BidRepository bidRepository;
     private final TransporterRepository transporterRepository;
+
+    public LoadServiceImpl(LoadRepository loadRepository, BidRepository bidRepository, TransporterRepository transporterRepository) {
+        this.loadRepository = loadRepository;
+        this.bidRepository = bidRepository;
+        this.transporterRepository = transporterRepository;
+    }
 
     @Override
     @Transactional

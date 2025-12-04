@@ -9,7 +9,7 @@ import com.cargopro.tms.exception.ResourceNotFoundException;
 import com.cargopro.tms.repository.BidRepository;
 import com.cargopro.tms.repository.LoadRepository;
 import com.cargopro.tms.repository.TransporterRepository;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,12 +24,17 @@ import java.util.UUID;
  * Handles bid submission, rejection, and retrieval.
  */
 @Service
-@RequiredArgsConstructor
 public class BidService {
 
     private final BidRepository bidRepository;
     private final LoadRepository loadRepository;
     private final TransporterRepository transporterRepository;
+
+    public BidService(BidRepository bidRepository, LoadRepository loadRepository, TransporterRepository transporterRepository) {
+        this.bidRepository = bidRepository;
+        this.loadRepository = loadRepository;
+        this.transporterRepository = transporterRepository;
+    }
 
     /**
      * Submits a new bid for a load.

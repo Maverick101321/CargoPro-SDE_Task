@@ -4,7 +4,7 @@ import com.cargopro.tms.dto.BookingRequest;
 import com.cargopro.tms.dto.BookingResponse;
 import com.cargopro.tms.service.BookingService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +17,13 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("/booking")
-@RequiredArgsConstructor
 public class BookingController {
 
     private final BookingService bookingService;
+
+    public BookingController(BookingService bookingService) {
+        this.bookingService = bookingService;
+    }
 
     /**
      * 1. POST /booking
