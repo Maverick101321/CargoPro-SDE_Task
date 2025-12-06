@@ -59,7 +59,7 @@
 The full API documentation (including request/response schemas and examples for the 15 endpoints) can be found at:
 
 * **Swagger/OpenAPI URL:** `http://localhost:8080/swagger-ui.html` (Available after adding Swagger dependency)
-* [cite_start]**Postman Collection Link:** [Link to your exported Postman collection] [cite: 143]
+* [cite_start]**Postman Collection Link:** [Download Postman Collection](https://raw.githubusercontent.com/Maverick101321/CargoPro-SDE_Task/refs/heads/main/Transport%20System%20Backend.postman_collection.json) [cite: 143]
 
 ### 3. Test Coverage Screenshot
 
