@@ -14,7 +14,8 @@ import java.util.UUID;
 
 /**
  * Service class for managing Transporters.
- * Annotated with @Service to indicate it's a Spring-managed bean holding business logic.
+ * Annotated with @Service to indicate it's a Spring-managed bean holding
+ * business logic.
  */
 @Service
 public class TransporterService {
@@ -37,12 +38,16 @@ public class TransporterService {
         Transporter transporter = new Transporter();
         transporter.setCompanyName(request.companyName());
         transporter.setRating(request.rating());
+        if (request.availableTrucks() != null) {
+            transporter.setAvailableTrucks(request.availableTrucks());
+        }
         return transporterRepository.save(transporter);
     }
 
     /**
      * Updates the truck capacity for a specific transporter.
-     * Fetches the transporter, updates the list of available trucks, and saves the changes.
+     * Fetches the transporter, updates the list of available trucks, and saves the
+     * changes.
      *
      * @param transporterId   The ID of the transporter.
      * @param capacityUpdates The list of new truck capacities.
